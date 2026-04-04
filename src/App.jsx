@@ -66,7 +66,7 @@ const SLIDES = [
   /* 1 – The Problem */
   () => (
     <div className="slide-inner">
-      <div className="slide-num">Slide 02 — The Problem</div>
+      <div className="slide-num">The Problem</div>
       <h2>⚠️ The Problem</h2>
       <p className="problem-intro">
         After a security threat, the university plans to install facial tracking systems.
@@ -85,7 +85,7 @@ const SLIDES = [
   /* 2 – Chilling Effect */
   ({ isActive }) => (
     <div className="slide-inner">
-      <div className="slide-num">Slide 03 — Evidence</div>
+      <div className="slide-num">Evidence</div>
       <h2>📊 The Chilling Effect</h2>
       <p className="slide-subtitle">Constant surveillance changes behavior — and the data proves it.</p>
       <BarChart active={isActive} />
@@ -102,7 +102,7 @@ const SLIDES = [
   /* 3 – Solution */
   () => (
     <div className="slide-inner">
-      <div className="slide-num">Slide 04 — Our Solution</div>
+      <div className="slide-num">Our Solution</div>
       <h2>🌿 SafeCamp: Privacy-First Security</h2>
       <p className="slide-subtitle">We monitor situations, not people.</p>
       <ul className="check-list">
@@ -125,7 +125,7 @@ const SLIDES = [
   /* 4 – How It Works */
   () => (
     <div className="slide-inner">
-      <div className="slide-num">Slide 05 — System Overview</div>
+      <div className="slide-num">System Overview</div>
       <h2>⚙️ How It Works</h2>
       <p className="slide-subtitle">A simple, transparent pipeline — no personal data at any stage.</p>
       <div className="flow-wrapper">
@@ -151,7 +151,7 @@ const SLIDES = [
   /* 5 – Why It's Better */
   () => (
     <div className="slide-inner">
-      <div className="slide-num">Slide 06 — Why SafeCamp?</div>
+      <div className="slide-num">Why SafeCamp?</div>
       <h2>🏆 Why It&apos;s Better</h2>
       <div className="card-grid cols-2">
         {[
@@ -174,7 +174,7 @@ const SLIDES = [
   /* 6 – Risk & Mitigation */
   () => (
     <div className="slide-inner">
-      <div className="slide-num">Slide 07 — Risk &amp; Ethics</div>
+      <div className="slide-num">Risk &amp; Ethics</div>
       <h2>⚖️ Risk &amp; Mitigation</h2>
       <p className="slide-subtitle">We anticipated the challenges and designed transparent safeguards.</p>
       <div className="risk-grid">
@@ -202,7 +202,7 @@ const SLIDES = [
   /* 7 – Campus Guardians */
   () => (
     <div className="slide-inner">
-      <div className="slide-num">Slide 08 — X Factor</div>
+      <div className="slide-num">X Factor</div>
       <h2>🌟 Campus Guardians Program</h2>
       <p className="slide-subtitle">100% voluntary — students become partners in safety.</p>
       <div className="reward-grid">
@@ -225,7 +225,7 @@ const SLIDES = [
   /* 8 – Conclusion */
   () => (
     <div className="slide-inner">
-      <div className="slide-num">Slide 09 — Conclusion</div>
+      <div className="slide-num">Conclusion</div>
       <h2>A New Vision of Security</h2>
       <p className="slide-subtitle">Not surveillance. Not control.</p>
       <div className="conclusion-pillars">
