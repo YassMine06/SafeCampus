@@ -359,7 +359,7 @@ const SLIDES = [
   ),
 
   /* 1 – The Problem */
-  () => (
+  ({ onZoom }) => (
     <div className="slide-inner problem-layout">
       <div className="slide-num">The Problem</div>
       <h2>⚠️ The Problem</h2>
@@ -382,6 +382,7 @@ const SLIDES = [
             src="/images/problem facee.png"
             alt="Campus facial recognition surveillance"
             className="problem-img"
+            onClick={() => onZoom('/images/problem facee.png')}
           />
           <div className="problem-img-badge">⚠️ Face Recognition Active</div>
         </div>
@@ -433,7 +434,7 @@ const SLIDES = [
   ),
 
   /* 4 – How It Works */
-  () => (
+  ({ onZoom }) => (
     <div className="slide-inner">
       <div className="slide-num">System Overview</div>
       <h2>⚙️ How It Works</h2>
@@ -443,6 +444,7 @@ const SLIDES = [
           src="/images/how it works.png"
           alt="System flow: Student report -> AI verification -> Security notification -> Safe route"
           className="how-diagram-img"
+          onClick={() => onZoom('/images/how it works.png')}
         />
       </div>
       <div className="quote-block" style={{ marginTop: 22 }}>No personal data stored — ever.</div>
@@ -523,43 +525,36 @@ const SLIDES = [
   () => (
     <div className="slide-inner">
       <div className="slide-num">Risk &amp; Ethics</div>
-      <h2>⚖️ Risk &amp; Mitigation</h2>
-      <p className="slide-subtitle">We anticipated the challenges and designed transparent safeguards.</p>
-      <div className="risk-grid">
+      <h2>⚖️ The Risks</h2>
+      <p className="slide-subtitle">We identified the core ethical and technical challenges of smart security.</p>
+      <div className="risk-container-single">
         <div className="risk-box danger">
-          <div className="risk-box-title">⚠️ The Risk</div>
+          <div className="risk-box-title">⚠️ The Risks Involved</div>
           <ul className="risk-items">
             <li><span>⚡</span><span>False alerts triggered by normal campus events</span></li>
             <li><span>🏃</span><span>Sports, concerts, and large gatherings misread</span></li>
             <li><span>🔊</span><span>Routine activities flagged as threats</span></li>
-          </ul>
-        </div>
-        <div className="risk-box safe">
-          <div className="risk-box-title">✅ Our Solution</div>
-          <ul className="risk-items">
-            <li><span>👤</span><span>Human validation required before any action</span></li>
-            <li><span>🚫</span><span>No automatic punishment — ever</span></li>
-            <li><span>🕐</span><span>All sensor data deleted after 24 hours</span></li>
+            <li><span>🤖</span><span>AI Bias – Potential for algorithms to misinterpret specific cultural or behavioral contexts</span></li>
           </ul>
         </div>
       </div>
-      <div className="quote-block" style={{ marginTop: 18 }}>Technology assists — humans decide.</div>
+      <div className="quote-block" style={{ marginTop: 28 }}>Acknowledging risks is the first step to ethical security.</div>
     </div>
   ),
 
   /* 8 – Conclusion */
   () => (
     <div className="slide-inner">
-      <div className="slide-num">Conclusion</div>
-      <h2>A New Vision of Security</h2>
-      <p className="slide-subtitle">Not surveillance. Not control.</p>
+      {/* <div className="slide-num">A New Vision of Security</div> */}
+      <h2>Conclusion</h2>
+      {/* <p className="slide-subtitle">Not surveillance. Not control.</p> */}
       <div className="conclusion-pillars">
         <div className="pillar trust">🤝 Trust</div>
         <div className="pillar privacy">🔒 Privacy</div>
         <div className="pillar safety">🛡️ Safety</div>
       </div>
       <div className="final-quote">"We protect students without knowing who they are."</div>
-      <p className="final-sub">Security and privacy can — and must — coexist on a modern campus.</p>
+      <p className="slide-num" style={{ marginTop: 28 }}>A New Vision of Security</p>
     </div>
   ),
 ];
@@ -592,6 +587,7 @@ export default function App() {
   const [current, setCurrent] = useState(0);
   const [states, setStates]   = useState(() => buildStates(0));
   const [barsAnimated, setBarsAnimated] = useState(false);
+  const [fullscreenImg, setFullscreenImg] = useState(null);
   const animating = useRef(false);
 
   /* Navigate to a slide */
@@ -672,7 +668,10 @@ export default function App() {
               key={i}
               className={`slide ${SLIDE_CLASSES[i]} ${state}`}
             >
-              <SlideContent isActive={i === current && barsAnimated} />
+              <SlideContent 
+                isActive={i === current && barsAnimated} 
+                onZoom={setFullscreenImg}
+              />
             </div>
           );
         })}
@@ -713,6 +712,14 @@ export default function App() {
           →
         </button>
       </nav>
+
+      {/* Fullscreen Image Overlay (Lightbox) */}
+      {fullscreenImg && (
+        <div className="fullscreen-overlay" onClick={() => setFullscreenImg(null)}>
+          <button className="fs-close" aria-label="Close fullscreen view">×</button>
+          <img src={fullscreenImg} alt="Fullscreen preview" className="fullscreen-img" />
+        </div>
+      )}
     </>
   );
 }
