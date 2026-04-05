@@ -411,27 +411,131 @@ const SLIDES = [
   ),
 
   /* 3 – Solution */
-  () => (
-    <div className="slide-inner">
-      <div className="slide-num">Our Solution</div>
-      <h2>🌿 SafeCamp: Privacy-First Security</h2>
-      <p className="slide-subtitle">We monitor situations, not people.</p>
-      <ul className="check-list">
-        <li><span className="check-dot">✓</span>No facial recognition — anonymous by design</li>
-        <li><span className="check-dot">✓</span>No identity tracking — only behavioral patterns</li>
-        <li><span className="check-dot">✓</span>Fully anonymous — zero personal data collected</li>
-      </ul>
-      <p style={{ marginTop: 22, fontSize: '0.85rem', fontWeight: 700, color: 'var(--gray-500)' }}>
-        Technologies used:
-      </p>
-      <div className="tech-tags">
-        {['📡 Motion Detection', '👥 Crowd Analysis', '🤖 AI Anomaly Detection',
-          '🗺️ Heatmap Visualization', '🔐 Anonymization Layer'].map(t => (
-          <span className="tech-tag" key={t}>{t}</span>
-        ))}
+  () => {
+    const [isSafe, setIsSafe] = useState(true);
+    const [points, setPoints] = useState(450);
+    const [alertStatus, setAlertStatus] = useState(null); // 'sending', 'success'
+
+    const handleReport = (e) => {
+      e.stopPropagation();
+      setAlertStatus('sending');
+      setTimeout(() => {
+        setAlertStatus('success');
+        setPoints(p => p + 50);
+        setTimeout(() => setAlertStatus(null), 2000);
+      }, 1000);
+    };
+
+    return (
+      <div className="slide-inner solution-layout">
+        <div className="solution-text">
+          <div className="slide-num">Protecting the Campus</div>
+          <h2>🛡️ SafeCampus: Privacy-First Signal</h2>
+          <p className="slide-subtitle">Advanced security through anonymity and behavioral AI.</p>
+          <ul className="check-list">
+            <li><span className="check-dot">✓</span><strong>Zero-ID Monitoring</strong> — No facial data or names</li>
+            <li><span className="check-dot">✓</span><strong>End-to-End Encryption</strong> — Data is secured in transit</li>
+            <li><span className="check-dot">✓</span><strong>Anonymous Mesh</strong> — Decentralized privacy network</li>
+          </ul>
+          <p style={{ marginTop: 22, fontSize: '0.85rem', fontWeight: 700, color: 'var(--gray-500)' }}>
+            Core Technologies:
+          </p>
+          <div className="tech-tags">
+            {['🔒 Onion Routing', '📡 Behavioral AI', '🤖 Mesh Network',
+              '🔐 Zero-Knowledge Proofs', '🛡️ Local Processing'].map(t => (
+              <span className="tech-tag" key={t}>{t}</span>
+            ))}
+          </div>
+        </div>
+
+        <div 
+          className={`phone-mockup phone-mini phone-dark ${isSafe ? 'is-safe' : ''}`} 
+          onClick={() => setIsSafe(!isSafe)}
+          style={{ cursor: 'pointer', transition: 'all 0.3s ease' }}
+        >
+          <div className="phone-notch" />
+          <div className="phone-screen dark-screen" style={{ minHeight: '400px', padding: '20px 16px' }}>
+            <div className="phone-header" style={{ background: '#0f172a', color: '#10b981', marginBottom: '22px' }}>
+              <span>🛡️ SafeCampus Net</span>
+              <span className="phone-status" style={{ color: isSafe ? '#10b981' : '#475569' }}>
+                {isSafe ? '● MASKED' : '○ STANDBY'}
+              </span>
+            </div>
+            
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '28px' }}>
+               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div className={`privacy-orb ${isSafe ? 'pulse' : ''}`} style={{ fontSize: '1.6rem' }}>{isSafe ? '🛰️' : '🔒'}</div>
+                  <div>
+                    <div style={{ fontSize: '0.9rem', fontWeight: 800, color: 'white' }}>Guardian</div>
+                    <div style={{ fontSize: '0.6rem', color: '#10b981', fontWeight: 700 }}>Level 2 • Silver</div>
+                  </div>
+               </div>
+               <div style={{ background: 'rgba(59,130,246,0.12)', padding: '8px 14px', borderRadius: '100px', border: '1.5px solid rgba(59,130,246,0.3)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span style={{ fontSize: '0.85rem' }}>⭐</span>
+                  <span style={{ fontSize: '0.85rem', fontWeight: 900, color: '#60a5fa' }}>{points}</span>
+               </div>
+            </div>
+
+            <div style={{ 
+              background: 'rgba(255,255,255,0.03)', 
+              border: '1px solid rgba(16,185,129,0.15)',
+              borderRadius: '18px', 
+              padding: '16px',
+              marginBottom: '20px'
+            }}>
+              <div style={{ fontSize: '0.6rem', fontWeight: 800, color: '#475569', marginBottom: '14px', letterSpacing: '1.5px' }}>PRIVACY SHIELD</div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                 {[
+                   { label: 'Anonymity', value: isSafe ? 'VERIFIED' : '---', color: '#10b981' },
+                   { label: 'Encryption', value: isSafe ? 'AES-256' : '---', color: '#10b981' },
+                   { label: 'Relay Nodes', value: isSafe ? '4 active' : '---', color: '#10b981' }
+                 ].map(item => (
+                   <div key={item.label} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem' }}>
+                      <span style={{ color: '#94a3b8', fontWeight: 500 }}>{item.label}</span>
+                      <span style={{ fontWeight: 800, color: item.color }}>{item.value}</span>
+                   </div>
+                 ))}
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+               <button 
+                 onClick={handleReport}
+                 disabled={!isSafe || alertStatus}
+                 style={{ 
+                   width: '100%', 
+                   background: alertStatus === 'success' ? '#10b981' : (isSafe ? 'linear-gradient(135deg, #ef4444, #dc2626)' : '#1e293b'), 
+                   color: 'white', border: 'none', borderRadius: '16px', padding: '16px',
+                   fontSize: '0.85rem', fontWeight: 900, cursor: (isSafe && !alertStatus) ? 'pointer' : 'default',
+                   transition: 'all 0.4s ease', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                   boxShadow: isSafe && !alertStatus ? '0 8px 24px rgba(220,38,38,0.25)' : 'none'
+                 }}>
+                 {alertStatus === 'sending' ? (
+                   <>
+                     <span className="spinner" style={{ width: '14px', height: '14px', border: '2px solid white', borderTopColor: 'transparent', borderRadius: '50%', display: 'inline-block', animation: 'spin 0.6s linear infinite' }} />
+                     Sending...
+                   </>
+                 ) : (alertStatus === 'success' ? 'SUCCESS (+50 pts)' : 'SIGNAL ALERT')}
+               </button>
+               
+               <p style={{ fontSize: '0.6rem', color: '#475569', textAlign: 'center', padding: '0 8px', lineHeight: '1.5', fontWeight: 500 }}>
+                 {isSafe ? 'Your identity is fully protected via onion routing. Reporting a threat helps the AI verify campus safety.' : 'Tap phone to connect to the secure mesh network.'}
+               </p>
+            </div>
+
+            <style>{`
+              @keyframes spin { to { transform: rotate(360deg); } }
+            `}</style>
+
+            <div style={{ fontSize: '0.55rem', color: '#1e293b', textAlign: 'center', marginTop: 'auto', paddingBottom: '5px', fontWeight: 800, letterSpacing: '2px', opacity: 0.8 }}>
+              ZEROPRIVACY • SECUREMESH
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  ),
+    );
+  },
+
 
   /* 4 – How It Works */
   ({ onZoom }) => (
