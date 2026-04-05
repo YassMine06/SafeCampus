@@ -344,11 +344,11 @@ const SLIDES = [
   /* 0 – Cover */
   ({ isActive }) => (
     <div className="slide-inner">
-      <div className="slide-num">Group 7 · Privacy vs Safety Paradox</div>
+      <div className="slide-num"></div>
       <div className="cover-badge">🛡️ Smart Campus Security</div>
       <h1 className="cover-title">SAFECAMP</h1>
       <p className="cover-tagline">Smart Campus Security Without Surveillance</p>
-      <p className="cover-group">Privacy vs Safety Paradox — Group 7</p>
+      <p className="cover-group"></p>
       <div className="quote-block">"Safety should protect students, not control them."</div>
       <div className="hero-pills">
         <div className="hero-pill green">✅ Privacy First</div>
@@ -360,22 +360,37 @@ const SLIDES = [
 
   /* 1 – The Problem */
   () => (
-    <div className="slide-inner">
+    <div className="slide-inner problem-layout">
       <div className="slide-num">The Problem</div>
       <h2>⚠️ The Problem</h2>
-      <p className="problem-intro">
-        After a security threat, the university plans to install facial tracking systems.
-        But this creates serious issues:
+      <p className="slide-subtitle">
+        After a security threat, the university plans to install facial tracking systems. But this creates serious issues:
       </p>
-      <ul className="bullet-list bad-list">
-        <li><span className="b-icon">🔒</span><span><strong>Loss of privacy</strong> — every face identified and logged</span></li>
-        <li><span className="b-icon">👁️</span><span><strong>Constant surveillance feeling</strong> — students feel watched at all times</span></li>
-        <li><span className="b-icon">😰</span><span><strong>Stress and anxiety</strong> — behavioral changes under pressure</span></li>
-        <li><span className="b-icon">🤐</span><span><strong>Reduced freedom of expression</strong> — self-censorship kicks in</span></li>
-      </ul>
+
+      {/* Middle section for List and Photo vertically stacked */}
+      <div className="problem-vertical-container">
+        <ul className="bullet-list bad-list">
+          <li><span className="b-icon">🔒</span><span><strong>Loss of privacy</strong> — every face identified and logged</span></li>
+          <li><span className="b-icon">👁️</span><span><strong>Constant surveillance feeling</strong> — students feel watched at all times</span></li>
+          <li><span className="b-icon">😰</span><span><strong>Stress and anxiety</strong> — behavioral changes under pressure</span></li>
+          <li><span className="b-icon">🤐</span><span><strong>Reduced freedom of expression</strong> — self-censorship kicks in</span></li>
+        </ul>
+
+        {/* Right: image — now stacked below the list */}
+        <div className="problem-img-col">
+          <img
+            src="/images/problem facee.png"
+            alt="Campus facial recognition surveillance"
+            className="problem-img"
+          />
+          <div className="problem-img-badge">⚠️ Face Recognition Active</div>
+        </div>
+      </div>
+
       <div className="quote-block">A safe campus should not feel like a prison.</div>
     </div>
   ),
+
 
   /* 2 – Chilling Effect */
   ({ isActive }) => (
@@ -423,23 +438,14 @@ const SLIDES = [
       <div className="slide-num">System Overview</div>
       <h2>⚙️ How It Works</h2>
       <p className="slide-subtitle">A simple, transparent pipeline — no personal data at any stage.</p>
-      <div className="flow-wrapper">
-        {[
-          { icon: '📷', label: 'Camera /\nSensors' },
-          { icon: '🤖', label: 'AI\nAnalysis' },
-          { icon: '🔐', label: 'Anonymi-\nzation' },
-          { icon: '🗺️', label: 'Heatmap' },
-          { icon: '🔔', label: 'Real-Time\nAlerts' },
-        ].map((s, i, arr) => (
-          <FlowStep key={s.label} icon={s.icon} label={s.label} isLast={i === arr.length - 1} />
-        ))}
+      <div className="how-it-works-img-container">
+        <img
+          src="/images/how it works.png"
+          alt="System flow: Student report -> AI verification -> Security notification -> Safe route"
+          className="how-diagram-img"
+        />
       </div>
-      <div className="legend-row">
-        <div className="legend-item"><span className="legend-dot" style={{ background: '#22c55e' }} />Safe Zones</div>
-        <div className="legend-item"><span className="legend-dot" style={{ background: '#eab308' }} />Unusual Activity</div>
-        <div className="legend-item"><span className="legend-dot" style={{ background: '#ef4444' }} />Risk Detected</div>
-      </div>
-      <div className="quote-block" style={{ marginTop: 18 }}>No personal data stored — ever.</div>
+      <div className="quote-block" style={{ marginTop: 22 }}>No personal data stored — ever.</div>
     </div>
   ),
 
@@ -466,7 +472,30 @@ const SLIDES = [
     </div>
   ),
 
-  /* 5.5 – Demo Intro (inserted after slide 5) */
+  /* 7 – Campus Guardians */
+  () => (
+    <div className="slide-inner">
+      <div className="slide-num">X Factor</div>
+      <h2>🌟 Campus Guardians Program</h2>
+      <p className="slide-subtitle">100% voluntary — students become partners in safety.</p>
+      <div className="reward-grid">
+        {[
+          { icon: '⭐', title: 'Points System', desc: 'Earn points for each safety contribution you make on campus.' },
+          { icon: '🏅', title: 'Badges',        desc: 'Unlock Guardian badges and recognition from the university.' },
+          { icon: '🎁', title: 'Rewards',       desc: 'Cafeteria discounts, event access, and exclusive campus perks.' },
+          { icon: '🤝', title: 'Community',     desc: 'Build a culture of shared responsibility and mutual care.' },
+        ].map(r => (
+          <div className="reward-card" key={r.title}>
+            <div className="reward-icon">{r.icon}</div>
+            <div className="reward-title">{r.title}</div>
+            <div className="reward-desc">{r.desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  ),
+
+  /* 5.5 – Demo Intro (See SafeCamp in Action) */
   () => (
     <div className="slide-inner demo-intro-inner">
       <div className="slide-num">Live Demo</div>
@@ -487,19 +516,6 @@ const SLIDES = [
         ))}
       </div>
       <p className="demo-nav-hint">Press → or click the arrow to launch the demo interface</p>
-    </div>
-  ),
-
-  /* 5.6 – Demo Interface */
-  () => (
-    <div className="slide-inner demo-full-inner">
-      <div className="demo-header-row">
-        <div>
-          <div className="slide-num">Live Demo – SafeCamp System</div>
-          <h2 className="demo-h2">Interactive Demo</h2>
-        </div>
-      </div>
-      <DemoInterface />
     </div>
   ),
 
@@ -531,29 +547,6 @@ const SLIDES = [
     </div>
   ),
 
-  /* 7 – Campus Guardians */
-  () => (
-    <div className="slide-inner">
-      <div className="slide-num">X Factor</div>
-      <h2>🌟 Campus Guardians Program</h2>
-      <p className="slide-subtitle">100% voluntary — students become partners in safety.</p>
-      <div className="reward-grid">
-        {[
-          { icon: '⭐', title: 'Points System', desc: 'Earn points for each safety contribution you make on campus.' },
-          { icon: '🏅', title: 'Badges',        desc: 'Unlock Guardian badges and recognition from the university.' },
-          { icon: '🎁', title: 'Rewards',       desc: 'Cafeteria discounts, event access, and exclusive campus perks.' },
-          { icon: '🤝', title: 'Community',     desc: 'Build a culture of shared responsibility and mutual care.' },
-        ].map(r => (
-          <div className="reward-card" key={r.title}>
-            <div className="reward-icon">{r.icon}</div>
-            <div className="reward-title">{r.title}</div>
-            <div className="reward-desc">{r.desc}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  ),
-
   /* 8 – Conclusion */
   () => (
     <div className="slide-inner">
@@ -574,8 +567,7 @@ const SLIDES = [
 const SLIDE_CLASSES = [
   'slide-cover', 'slide-problem', 'slide-chilling', 'slide-solution',
   'slide-howitworks', 'slide-whybetter',
-  'slide-demo-intro', 'slide-demo-interface',
-  'slide-risk', 'slide-guardians', 'slide-conclusion',
+  'slide-guardians', 'slide-demo-intro', 'slide-risk', 'slide-conclusion',
 ];
 
 const TOTAL = SLIDES.length;
