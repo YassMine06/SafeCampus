@@ -545,7 +545,7 @@ const SLIDES = [
       <p className="slide-subtitle">A simple, transparent pipeline — no personal data at any stage.</p>
       <div className="how-it-works-img-container">
         <img
-          src="/images/how it works.png"
+          src="/images/how its works.png"
           alt="System flow: Student report -> AI verification -> Security notification -> Safe route"
           className="how-diagram-img"
           onClick={() => onZoom('/images/how it works.png')}
