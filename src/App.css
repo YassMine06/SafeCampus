@@ -709,6 +709,24 @@ html, body, #root {
 /* ══════════════════════════════════════════════════
    SLIDE 7 – DEMO INTERFACE
 ══════════════════════════════════════════════════ */
+.slide-platform-embed {
+  background: white;
+  padding: 0 !important;
+}
+/* Hide top UI elements for the full-screen platform slide */
+.logo-bar.slide-platform-embed,
+.key-hint.slide-platform-embed {
+  display: none;
+}
+.platform-embed-full {
+  width: 100vw; height: 100vh;
+  margin: 0; padding: 0;
+  overflow: hidden;
+}
+.platform-iframe-full {
+  width: 100%; height: 100%;
+  border: none;
+}
 .slide-demo-interface {
   background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 60%, #e2e8f0 100%);
 }

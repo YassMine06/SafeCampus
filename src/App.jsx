@@ -600,7 +600,7 @@ const SLIDES = [
     </div>
   ),
 
-  /* 5.5 – Demo Intro (See SafeCamp in Action) */
+  /* 5.2 – Demo Intro (See SafeCamp in Action) */
   () => (
     <div className="slide-inner demo-intro-inner">
       <div className="slide-num">Live Demo</div>
@@ -621,6 +621,18 @@ const SLIDES = [
         ))}
       </div>
       <p className="demo-nav-hint">Press → or click the arrow to launch the demo interface</p>
+    </div>
+  ),
+
+  /* 5.5 – Platform Embed */
+  () => (
+    <div className="platform-embed-full">
+      <iframe 
+        src="http://localhost:5173/" 
+        title="SafeCampus Platform"
+        className="platform-iframe-full"
+        frameBorder="0"
+      />
     </div>
   ),
 
@@ -665,7 +677,7 @@ const SLIDES = [
 const SLIDE_CLASSES = [
   'slide-cover', 'slide-problem', 'slide-chilling', 'slide-solution',
   'slide-howitworks', 'slide-whybetter',
-  'slide-guardians', 'slide-demo-intro', 'slide-risk', 'slide-conclusion',
+  'slide-guardians', 'slide-demo-intro', 'slide-platform-embed', 'slide-risk', 'slide-conclusion',
 ];
 
 const TOTAL = SLIDES.length;
