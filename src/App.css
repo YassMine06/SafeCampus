@@ -97,9 +97,17 @@ html, body, #root {
 .slide-chilling   { background: linear-gradient(145deg,#fffbeb 0%,#fef3c7 60%,#fde68a 100%); }
 .slide-solution   { background: linear-gradient(145deg,#ecfdf5 0%,#d1fae5 60%,#a7f3d0 100%); }
 .slide-howitworks { background: linear-gradient(145deg,#eff6ff 0%,#dbeafe 60%,#bfdbfe 100%); }
-.slide-whybetter  { background: linear-gradient(145deg,#f5f3ff 0%,#ede9fe 60%,#ddd6fe 100%); }
+.slide-whybetter  {
+  background:
+    linear-gradient(rgba(245, 243, 255, 0.2), rgba(221, 214, 254, 0.2)),
+    url('/images/why%20its%20better.png') center/cover no-repeat;
+}
 .slide-risk       { background: linear-gradient(145deg,#fff7ed 0%,#ffedd5 60%,#fed7aa 100%); }
-.slide-guardians  { background: linear-gradient(145deg,#fdf4ff 0%,#fae8ff 60%,#f5d0fe 100%); }
+.slide-guardians  {
+  background:
+    linear-gradient(rgba(253, 244, 255, 0.2), rgba(245, 208, 254, 0.2)),
+    url('/images/gifts.png') center/cover no-repeat;
+}
 .slide-conclusion { 
   background: 
     linear-gradient(rgba(15,23,42,0.7), rgba(15,23,42,0.7)),
@@ -508,8 +516,8 @@ html, body, #root {
 /* ══════════════════════════════════════════════════
    SLIDE 6 – WHY BETTER (purple)
 ══════════════════════════════════════════════════ */
-.slide-whybetter h2    { color: #4c1d95; }
-.slide-whybetter .slide-num { color: #8b5cf6; }
+.slide-whybetter h2    { color: #4c1d95; text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 10px rgba(255, 255, 255, 0.5); }
+.slide-whybetter .slide-num { color: #000000; text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 10px rgba(255, 255, 255, 0.5);}
 .slide-whybetter .slide-subtitle { color: #5b21b6; }
 
 .card-grid { display: grid; gap: 14px; margin-top: 18px; }
@@ -563,9 +571,9 @@ html, body, #root {
 /* ══════════════════════════════════════════════════
    SLIDE 8 – GUARDIANS (pink/purple)
 ══════════════════════════════════════════════════ */
-.slide-guardians h2    { color: #701a75; }
-.slide-guardians .slide-num { color: #d946ef; }
-.slide-guardians .slide-subtitle { color: #86198f; font-weight: 500; }
+.slide-guardians h2    { color: #701a75; text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 10px rgba(255, 255, 255, 0.5); }
+.slide-guardians .slide-num { color: #000000; text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 10px rgba(255, 255, 255, 0.5); }
+.slide-guardians .slide-subtitle { color: #000000; font-weight: 700; text-shadow: 0 0 15px rgba(255, 255, 255, 0.8); }
 
 .reward-grid {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
