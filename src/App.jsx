@@ -245,10 +245,10 @@ function DemoPrivacy() {
     <div className="demo-panel privacy-panel">
       <div className="privacy-cards">
         {[
-          { icon: '🚫', title: 'No Facial Recognition',   desc: 'Cameras detect motion patterns only. Zero face data is captured or stored.', color: '#dc2626', bg: '#fff1f2' },
-          { icon: '🙈', title: 'No Personal Data',        desc: 'No names, IDs, or photos are ever collected. You are just an anonymous signal.', color: '#7c3aed', bg: '#f5f3ff' },
-          { icon: '👤', title: 'Fully Anonymous System',  desc: 'All data is aggregated and anonymized before any analysis takes place.', color: '#0369a1', bg: '#eff6ff' },
-          { icon: '⏱️', title: 'Auto-Delete in 24h',      desc: 'All sensor data is automatically purged every 24 hours — no long-term storage.', color: '#059669', bg: '#ecfdf5' },
+          { icon: '🚫', title: 'No Surveillance Devices', desc: 'Our system uses zero cameras or sensors. We rely entirely on user-submitted reports.', color: '#dc2626', bg: '#fff1f2' },
+          { icon: '🙈', title: 'No Personal Data',        desc: 'No names, phone numbers, or IDs are ever collected. You are just an anonymous voice.', color: '#7c3aed', bg: '#f5f3ff' },
+          { icon: '👤', title: 'Fully Anonymous Reports', desc: 'All incoming reports are aggregated and anonymized before being shared with security.', color: '#0369a1', bg: '#eff6ff' },
+          { icon: '⏱️', title: 'Auto-Delete Records',     desc: 'All report data is automatically purged after the incident is resolved — no long-term storage.', color: '#059669', bg: '#ecfdf5' },
         ].map(p => (
           <div className="privacy-card" key={p.title} style={{ background: p.bg, borderColor: p.color + '55' }}>
             <div className="priv-icon" style={{ color: p.color }}>{p.icon}</div>
@@ -429,19 +429,19 @@ const SLIDES = [
       <div className="slide-inner solution-layout">
         <div className="solution-text">
           <div className="slide-num">Protecting the Campus</div>
-          <h2>🛡️ SafeCampus: Privacy-First Signal</h2>
-          <p className="slide-subtitle">Advanced security through anonymity and behavioral AI.</p>
+          <h2>🛡️ SafeCampus: Crowdsourced Safety</h2>
+          <p className="slide-subtitle">Advanced security through anonymous student intelligence.</p>
           <ul className="check-list">
-            <li><span className="check-dot">✓</span><strong>Zero-ID Monitoring</strong> — No facial data or names</li>
-            <li><span className="check-dot">✓</span><strong>End-to-End Encryption</strong> — Data is secured in transit</li>
-            <li><span className="check-dot">✓</span><strong>Anonymous Mesh</strong> — Decentralized privacy network</li>
+            <li><span className="check-dot">✓</span><strong>Zero-ID Reporting</strong> — No identity data or names</li>
+            <li><span className="check-dot">✓</span><strong>Trust-Based Network</strong> — Decentralized verification</li>
+            <li><span className="check-dot">✓</span><strong>Incentivised Participation</strong> — Rewards for proactive students</li>
           </ul>
           <p style={{ marginTop: 22, fontSize: '0.85rem', fontWeight: 700, color: 'var(--gray-500)' }}>
             Core Technologies:
           </p>
           <div className="tech-tags">
-            {['🔒 Onion Routing', '📡 Behavioral AI', '🤖 Mesh Network',
-              '🔐 Zero-Knowledge Proofs', '🛡️ Local Processing'].map(t => (
+            {['🔒 Anonymous Routing', '📱 Mesh Connectivity', '🤝 Community Verification',
+              '🔐 Zero-Knowledge Proofs', '🛡️ End-to-End Encryption'].map(t => (
               <span className="tech-tag" key={t}>{t}</span>
             ))}
           </div>
@@ -512,7 +512,7 @@ const SLIDES = [
                  {alertStatus === 'sending' ? (
                    <>
                      <span className="spinner" style={{ width: '14px', height: '14px', border: '2px solid white', borderTopColor: 'transparent', borderRadius: '50%', display: 'inline-block', animation: 'spin 0.6s linear infinite' }} />
-                     Sending...
+                     Sending Report...
                    </>
                  ) : (alertStatus === 'success' ? 'SUCCESS (+50 pts)' : 'SIGNAL ALERT')}
                </button>
@@ -639,17 +639,17 @@ const SLIDES = [
   /* 6 – Risk & Mitigation */
   () => (
     <div className="slide-inner">
-      <div className="slide-num">Risk &amp; Ethics</div>
+      <div className="slide-num">Risk & Ethics</div>
       <h2>⚖️ The Risks</h2>
-      <p className="slide-subtitle">We identified the core ethical and technical challenges of smart security.</p>
+      <p className="slide-subtitle">We identified the core challenges of a student-driven reporting platform.</p>
       <div className="risk-container-single">
         <div className="risk-box danger">
-          <div className="risk-box-title">⚠️ The Risks Involved</div>
+          <div className="risk-box-title">⚠️ The Real Risks Involved</div>
           <ul className="risk-items">
-            <li><span>⚡</span><span>False alerts triggered by normal campus events</span></li>
-            <li><span>🏃</span><span>Sports, concerts, and large gatherings misread</span></li>
-            <li><span>🔊</span><span>Routine activities flagged as threats</span></li>
-            <li><span>🤖</span><span>AI Bias – Potential for algorithms to misinterpret specific cultural or behavioral contexts</span></li>
+            <li><span>📉</span><span><strong>Slow Response</strong> – The system depends on someone being there to report, so alerts can be late.</span></li>
+            <li><span>🎯</span><span><strong>Human Mistakes</strong> – Students may misunderstand a situation or give the wrong location.</span></li>
+            <li><span>📊</span><span><strong>Repeated Reports</strong> – Some users might send the same alert many times just to earn points.</span></li>
+            <li><span>🎭</span><span><strong>Misuse of the System</strong> – People could send false alerts on purpose to create fear or confusion.</span></li>
           </ul>
         </div>
       </div>
