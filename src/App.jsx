@@ -370,10 +370,9 @@ const SLIDES = [
       {/* Middle section for List and Photo vertically stacked */}
       <div className="problem-vertical-container">
         <ul className="bullet-list bad-list">
-          <li><span className="b-icon">🔒</span><span><strong>Loss of privacy</strong> — every face identified and logged</span></li>
-          <li><span className="b-icon">👁️</span><span><strong>Constant surveillance feeling</strong> — students feel watched at all times</span></li>
-          <li><span className="b-icon">😰</span><span><strong>Stress and anxiety</strong> — behavioral changes under pressure</span></li>
-          <li><span className="b-icon">🤐</span><span><strong>Reduced freedom of expression</strong> — self-censorship kicks in</span></li>
+          <li><span className="b-icon">🔒</span><span><strong>It can reduce privacy</strong> — students are always identified and monitored</span></li>
+          <li><span className="b-icon">👁️</span><span><strong>Students may feel watched all the time</strong>— can cause stress, anxiety, and discomfort</span></li>
+          <li><span className="b-icon">😰</span><span><strong>Can make students change how they act</strong> — they may stop talking freely, avoid certain places, or behave differently to avoid attention.</span></li>
         </ul>
 
         {/* Right: image — now stacked below the list */}
